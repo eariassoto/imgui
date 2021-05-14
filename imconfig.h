@@ -25,6 +25,13 @@
 // for each static/DLL boundary you are calling from. Read "Context and Memory Allocators" section of imgui.cpp for more details.
 //#define IMGUI_API __declspec( dllexport )
 //#define IMGUI_API __declspec( dllimport )
+#ifdef IMGUI_EXPORTS
+#define IMGUI_API __declspec(dllexport)
+#endif
+#ifdef IMGUI_IMPORTS
+#define IMGUI_API __declspec(dllimport)
+#endif
+#define IMGUI_IMPL_API
 
 //---- Don't define obsolete functions/enums/behaviors. Consider enabling from time to time after updating to avoid using soon-to-be obsolete function/names.
 //#define IMGUI_DISABLE_OBSOLETE_FUNCTIONS
